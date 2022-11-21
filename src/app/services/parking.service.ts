@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Coordinate } from '../classes/coordinate';
 import { Garage } from '../classes/garage';
 import { Spaceship } from '../classes/spaceship';
-import { DataService } from './data.service';
 import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
@@ -11,8 +10,7 @@ import { LocalstorageService } from './localstorage.service';
 export class ParkingService {
   coordinate: Coordinate = new Coordinate
 
-  constructor(private dataService: DataService,
-    private localstorageService: LocalstorageService) { }
+  constructor(private localstorageService: LocalstorageService) { }
 
   checkIfSpaceIsEmpty(garage: Garage, floor: number, parkingSpot: number): boolean {
     if (garage.floors[floor].parkingSpots[parkingSpot].spaceship) {
@@ -23,8 +21,7 @@ export class ParkingService {
 
   park(garage: Garage, floor: number, parkingSpot: number, spaceship: Spaceship) {
     garage.floors[floor].parkingSpots[parkingSpot].spaceship = spaceship
-    this.dataService.garageSource.next(garage)
-    this.localstorageService.saveGarage(garage)
+    this.localstorageService.saveLocalStorage(garage)
     console.log(garage)
   }
 
@@ -54,9 +51,8 @@ export class ParkingService {
   }
 
   removeSpaceship(garage: Garage, floorNr: number, parkingSpotNr: number) {
-    garage.floors[floorNr].parkingSpots[parkingSpotNr].spaceship = null
-    this.dataService.garageSource.next(garage)
-    this.localstorageService.saveGarage(garage)
+    delete garage.floors[floorNr].parkingSpots[parkingSpotNr].spaceship
+    this.localstorageService.saveLocalStorage(garage)
     console.log(garage)
   }
 }

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Coordinate } from 'src/app/classes/coordinate';
 import { Garage } from 'src/app/classes/garage';
 import { GoodbyeTicket } from 'src/app/classes/goodbye-ticket';
-import { DataService } from 'src/app/services/data.service';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ParkingService } from 'src/app/services/parking.service';
 import { TicketService } from 'src/app/services/ticket.service';
 
@@ -19,19 +19,18 @@ export class RetrieveSpaceshipFormComponent implements OnInit {
   ticketPrinted: boolean = false;
   showError: boolean = false
 
-  constructor(private dataService: DataService,
+  constructor(private localstorageService: LocalstorageService,
     private parkingService: ParkingService,
     private ticketService: TicketService) { }
 
   ngOnInit(): void {
-    this.dataService.garageSource.subscribe(garage => this.garage = garage)
+    this.garage = this.localstorageService.setupLocalStorageGarage()
     console.log(this.garage)
   }
 
   onSubmit(form: NgForm) {
     this.coordinate = this.parkingService.retrieve(form.value.licensePlate, this.garage)
-
-    
+  
     if (this.coordinate) {
       this.goodbyeTicket = this.ticketService.printGoodbyeTicket(form.value.licensePlate, this.coordinate)
       if (this.goodbyeTicket) this.ticketPrinted = true

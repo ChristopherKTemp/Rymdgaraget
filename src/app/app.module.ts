@@ -8,7 +8,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ParkingFormComponent } from './components/parking-form/parking-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RetrieveSpaceshipFormComponent } from './components/retrieve-spaceship-form/retrieve-spaceship-form.component';
-import { DataService } from './services/data.service';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { GoodbyeReceiptComponent } from './components/goodbye-receipt/goodbye-receipt.component';
 
@@ -34,7 +33,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
