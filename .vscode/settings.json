@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/145c06c9-3004-477e-ba99-a465c9f88c6c/AppServices/subscriptions/145c06c9-3004-477e-ba99-a465c9f88c6c/resourceGroups/RymdgaragetRG/providers/Microsoft.Web/sites/kwans-rymdgarage",
+    "appService.deploySubpath": "dist"
+}

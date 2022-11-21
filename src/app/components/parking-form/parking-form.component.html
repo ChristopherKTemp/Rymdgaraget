@@ -1,0 +1,43 @@
+<div class="container">
+    <h1 class="text-center mt-5">Parkera rymdskepp</h1>
+    <div class="d-flex justify-content-center">
+        <form class="box" (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="form-group mx-1">
+                <label>Registreringsnummer</label>
+                <input class="form-control" required name="licensePlate" ngModel />
+            </div>
+            <div class="d-flex mb-2">
+                <div class="form-outline col-6 mx-2">
+                    <label class="form-label">Dagar</label>
+                    <input type="number" class="form-control" min="0" for="time" name="days" required ngModel />
+                </div>
+                <div class="form-outline col-6">
+                    <label class="form-label">Timmar</label>
+                    <input type="number" class="form-control" min="0" for="time" name="hours" required ngModel />
+                </div>
+            </div>
+            <div class="d-flex mb-4">
+                <div class="form-group col-6 mx-2">
+                    <label>Våning</label>
+                    <select class="form-control" name="floor" required ngModel>
+                        <option *ngFor="let floor of garage.floors; index as i">{{i}}</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label>Plats</label>
+                    <select class="form-control" name="parkingSpot" required ngModel>
+                        <option *ngFor="let parkingSpot of parkingSpots; index as i">{{i}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mx-1 bt-3">
+                <button type="submit" class="btn btn-primary mx-2" [disabled]="!form.valid">Parkera</button>
+                <a routerLink="">
+                    <button type="button" class="btn btn-danger">Avbryt</button>
+                </a>
+            </div>
+        </form>
+    </div>
+    <h2 *ngIf="showError">Parkeringen misslyckades</h2>
+    <app-ticket *ngIf="ticketPrinted" [ticket]="ticket"></app-ticket>
+</div>
