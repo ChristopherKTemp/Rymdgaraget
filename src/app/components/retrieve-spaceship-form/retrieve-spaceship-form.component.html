@@ -16,6 +16,6 @@
             </div>
         </form>
     </div>
-    <h2 *ngIf="showError">Rymdskeppet finns inte i garaget</h2>
+    <h2 *ngIf="showError" class="text-center mt-3">Rymdskeppet finns inte i garaget</h2>
     <app-goodbye-receipt *ngIf="ticketPrinted" [goodbyeTicket]="goodbyeTicket"></app-goodbye-receipt>
 </div>

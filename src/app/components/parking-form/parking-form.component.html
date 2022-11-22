@@ -38,6 +38,7 @@
             </div>
         </form>
     </div>
-    <h2 *ngIf="showError">Parkeringen misslyckades</h2>
+    <h2 *ngIf="showError" class="text-center mt-3">Parkeringen misslyckades</h2>
     <app-ticket *ngIf="ticketPrinted" [ticket]="ticket"></app-ticket>
+    <app-garage-view *ngIf="garage" [garage]="garage"></app-garage-view>
 </div>

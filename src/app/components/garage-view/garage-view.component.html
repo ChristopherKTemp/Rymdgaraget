@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="d-flex justify-content-center mt-5">
+        <div class="d-block">
+            <div class="d-flex" *ngFor="let floor of garage.floors; index as i">
+                <div class="text mx-2">Våning: {{i}}</div>
+                <div class="box number" *ngFor="let parkingSpot of floor.parkingSpots; index as k"
+                [ngClass]="{'red' : (parkingSpot.spaceship)}">{{k}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

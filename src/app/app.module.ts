@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RetrieveSpaceshipFormComponent } from './components/retrieve-spaceship-form/retrieve-spaceship-form.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { GoodbyeReceiptComponent } from './components/goodbye-receipt/goodbye-receipt.component';
+import { GarageViewComponent } from './components/garage-view/garage-view.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     ParkingFormComponent,
     RetrieveSpaceshipFormComponent,
     TicketComponent,
-    GoodbyeReceiptComponent
+    GoodbyeReceiptComponent,
+    GarageViewComponent
   ],
   imports: [
     BrowserModule,
