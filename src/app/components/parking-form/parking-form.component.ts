@@ -37,6 +37,8 @@ export class ParkingFormComponent implements OnInit {
     this.spaceship.licensePlate = form.value.licensePlate
     this.time.days = form.value.days
     this.time.hours = form.value.hours
+    console.log(form.value.floor)
+    console.log(form.value.parkingSpot)
     this.tryPark(form.value.licensePlate, this.time, form.value.floor, form.value.parkingSpot)
   }
 

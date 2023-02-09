@@ -35,6 +35,7 @@ export class ParkingService {
   }
 
   searchForSpaceship(licensePlate: string, garage: Garage): boolean {
+
     let found: boolean = false;
     for (let i = 0; i < garage.floors.length; i++) {
       for (let k = 0; k < garage.floors[0].parkingSpots.length; k++) {
